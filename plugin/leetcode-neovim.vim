@@ -45,18 +45,20 @@ endif
 "  \ :call <SID>AppFunction()<CR>
 
 
-noremap <silent> <unique> <script> <Plug>TestLeetcode
- \ :call <SID>TestLeetcode()<CR>
+" noremap <silent> <unique> <script> <Plug>TestLeetcode
+"  \ :call <SID>TestLeetcode()<CR>
+" 
+" noremap <silent> <unique> <script> <Plug>ExecuteLeetcode
+"  \ :call <SID>ExecuteLeetcode()<CR>
+" 
+" 
+" noremap <silent> <unique> <script> <Plug>EnterLeetcode
+" \ :call <SID>EnterLeetcode()<CR>
 
-noremap <silent> <unique> <script> <Plug>ExecuteLeetcode
- \ :call <SID>ExecuteLeetcode()<CR>
 
-
-noremap <silent> <unique> <script> <Plug>EnterLeetcode
- \ :call <SID>EnterLeetcode()<CR>
-
-
-
+command LeetcodeEnter :call <SID>LeetcodeEnter()
+command LeetcodeExecute :call <SID>LeetcodeExecute()
+command LeetcodeTest :call <SID>LeetcodeTest()
 
 
 
@@ -76,21 +78,33 @@ noremap <silent> <unique> <script> <Plug>EnterLeetcode
 
 
 
-fun! s:TestLeetcode()
-	echo "hola"
-endfun
-
-
-
-fun! s:ExecuteLeetcode()
-	echo "hey"
-endfun
-
-fun! s:EnterLeetcode()
-	normal GVgg=
+fun! s:LeetcodeEnter()
+	" format the buffer
+	:normal ggVG=
+	"new buffer
+	split
+	execute "normal! \<C-w>j"
+	" create the terminal
 	:Tnew
-	normal <C-w>w
-	:T echo "hello world"
+	" return to the original
+	execute "normal! \<C-w>k"
+	:res +15
+endfun
+
+
+
+fun! s:LeetcodeTest()
+	Tclear
+	let l:filename=expand('%')
+	let l:number = split(l:filename,'\.')[0]
+	execute "T ~/.cargo/bin/leetcode test " . l:number
+endfun
+
+fun! s:LeetcodeExecute()
+	Tclear
+	let l:filename=expand('%')
+	let l:number = split(l:filename,'\.')[0]
+	execute "T ~/.cargo/bin/leetcode exec " . l:number
 endfun
 
 
