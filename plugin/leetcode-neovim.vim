@@ -8,10 +8,10 @@
 
 " ------------------------------------------------------------------------------
 " Exit when your app has already been loaded (or "compatible" mode set)
-if exists("g:loaded_code_runner") || &cp
+if exists("g:loaded_leet_code") || &cp
   finish
 endif
-let g:loaded_code_runner= 1 " your version number
+let g:loaded_leet_code= 1 " your version number
 let s:keepcpo           = &cpo
 set cpo&vim
 
