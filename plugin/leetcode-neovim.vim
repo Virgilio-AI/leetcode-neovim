@@ -29,7 +29,7 @@ endif
 
 " for compile and run file, input from custom files
 if !hasmapto('<Plug>CompileAndRunInput')
-  map <unique> <F11><F11> <Plug>ExecuteLeetcode
+  map <unique> <F3> <Plug>ExecuteLeetcode
 endif
 
 
@@ -77,11 +77,13 @@ noremap <silent> <unique> <script> <Plug>EnterLeetcode
 
 
 fun! s:TestLeetcode()
+	echo "hola"
 endfun
 
 
 
 fun! s:ExecuteLeetcode()
+	echo "hey"
 endfun
 
 fun! s:EnterLeetcode()
