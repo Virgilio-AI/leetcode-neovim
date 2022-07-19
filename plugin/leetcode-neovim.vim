@@ -94,6 +94,7 @@ endfun
 
 
 fun! s:LeetcodeTest()
+	:w
 	Tclear
 	let l:filename=expand('%')
 	let l:number = split(l:filename,'\.')[0]
@@ -101,6 +102,7 @@ fun! s:LeetcodeTest()
 endfun
 
 fun! s:LeetcodeExecute()
+	:w
 	Tclear
 	let l:filename=expand('%')
 	let l:number = split(l:filename,'\.')[0]
