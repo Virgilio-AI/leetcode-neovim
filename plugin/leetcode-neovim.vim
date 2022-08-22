@@ -22,19 +22,6 @@ set cpo&vim
 "   map <unique> <F11> <Plug>AppFunction
 " endif
 
-" for compile and run file, std input or custom files
-if !hasmapto('<Plug>CompileAndRun')
-  map <unique> <F11> <Plug>TestLeetcode
-endif
-
-" for compile and run file, input from custom files
-if !hasmapto('<Plug>CompileAndRunInput')
-  map <unique> <F3> <Plug>ExecuteLeetcode
-endif
-
-
-
-
 
 
 " Global Maps:
@@ -98,7 +85,7 @@ fun! s:LeetcodeTest()
 	Tclear
 	let l:filename=expand('%')
 	let l:number = split(l:filename,'\.')[0]
-	execute "T ~/.cargo/bin/leetcode test " . l:number
+	execute "T leetcode test " . l:number
 endfun
 
 fun! s:LeetcodeExecute()
@@ -106,7 +93,7 @@ fun! s:LeetcodeExecute()
 	Tclear
 	let l:filename=expand('%')
 	let l:number = split(l:filename,'\.')[0]
-	execute "T ~/.cargo/bin/leetcode exec " . l:number
+	execute "T leetcode exec " . l:number
 endfun
 
 
