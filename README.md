@@ -1,6 +1,10 @@
 # leetcode-neovim
 a vim plugin for submitting code to leetcode, test your code and execute it in vim
 
+# demo
+
+![](demo.gif)
+
 # requirements
 This plugin comes configured and packaged with Water Linux
 
